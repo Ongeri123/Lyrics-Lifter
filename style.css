@@ -1,0 +1,81 @@
+body{
+    margin: 0;
+    padding: 20px;
+    background-color: aqua;
+}
+#mainPocket{
+display: grid;
+grid-template-columns: auto auto;
+grid-template-rows: auto auto auto auto;
+height: 800px;
+width: 100%;
+background-color: beige;
+}
+ header{
+    height: fit-content;
+ }   
+
+#reguestPocket{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    border: 5px solid black;
+    background-image: url(./img/sky.jpeg);
+    padding: 10px;
+}
+
+.lyricsPocket{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    background-color: blueviolet;
+    border: 5px solid black;
+    
+}
+
+.albumImgPocket{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    border: 5px solid black;
+   
+}
+.playSong{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    border: 5px dashed black;
+}
+
+#artistname{
+    width: 25%;
+    height: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    border-style: none;
+}
+
+#songname{
+    width: 25%;
+    height: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    border-style: none;
+}
+
+#getSong{
+    height: 30px;
+    cursor: pointer;
+    border: 4px solid aqua;
+    border-radius: 10px;
+    font-weight:bolder;
+    font-size: large;
+}
+#getSong:hover{
+    background-color: black;
+    color: white;
+}
