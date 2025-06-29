@@ -1,19 +1,36 @@
 const getSongBtn = document.getElementById("getSong");
 const artistInput = document.getElementById("artistname");
 const songInput = document.getElementById("songname");
+const clearBtn = document.getElementById('clearFields');
 
+const loadingIndicator = document.getElementById('loadingIndicator');
 const lyricsSection = document.querySelector(".lyricsPocket");
 const albumSection = document.querySelector(".albumImgPocket");
 const playSection = document.querySelector(".playSong");
+
+
+function showLoading(show) {
+  loadingIndicator.style.display = show ? 'block' : 'none';
+}
+
+function clearResults() {
+  lyricsSection.innerHTML = `<h1>Lyrics</h1>`;
+  albumSection.innerHTML = `<h1>Album Photo</h1>`;
+  playSection.innerHTML = `<h1>Play Song</h1>`;
+}
+
 
 getSongBtn.addEventListener("click", () => {
   const artist = artistInput.value.trim();
   const song = songInput.value.trim();
 
   if (!artist || !song) {
-    alert("Please enter both artist and song name");
+    lyricsSection.innerHTML = `<h1>Lyrics</h1><p style="color:red;">Please enter both artist and song name.</p>`;
     return;
   }
+
+  showLoading(true);
+  clearResults();
 
   // 1. Fetch lyrics from lyrics.ovh
   fetch(`https://api.lyrics.ovh/v1/${artist}/${song}`)
@@ -34,6 +51,7 @@ getSongBtn.addEventListener("click", () => {
       if (!track) {
         albumSection.innerHTML = `<h1>Album Photo</h1><p>No artwork found.</p>`;
         playSection.innerHTML = `<h1>PlaySong</h1><p>No preview found.</p>`;
+        showLoading(false);
         return;
       }
 
@@ -52,10 +70,17 @@ getSongBtn.addEventListener("click", () => {
           Your browser does not support the audio tag.
         </audio>
       `;
+       showLoading(false);
     })
     .catch(err => {
       console.error(err);
       albumSection.innerHTML = `<h1>Album Photo</h1><p>Error fetching album.</p>`;
       playSection.innerHTML = `<h1>PlaySong</h1><p>Error playing preview.</p>`;
     });
+});
+
+clearBtn.addEventListener('click', () => {
+  artistInput.value = '';
+  songInput.value = '';
+  clearResults();
 });

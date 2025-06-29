@@ -10,19 +10,25 @@
     <header>
             <h1>LYRICS LIFTER</h1>
         </header>
-    <main id="mainPocket">
-        
-        <div id="reguestPocket">
-            <input type="text" id="artistname" placeholder="Artist" required>
-            <input type="text" id="songname" placeholder="Song" required>
+    <main id="mainFlex">
 
-            <button type="button" id="getSong">Get Song</button>
-        </div>
-        <div class="albumImgPocket">
-            <h1>album photo</h1>
-        </div>
-        <div class="playSong">
-            <h1>PlaySong</h1>
+        <div id="leftPocket">
+            <div id="reguestPocket">
+                <label for="artistname">Artist</label>
+                <input type="text" id="artistname" placeholder="Artist" required>
+                <label for="songname">Song</label>
+                <input type="text" id="songname" placeholder="Song" required>
+
+                <button type="button" id="getSong">Get Song</button>
+                <button type="button" id="clearFields">Clear</button>
+            </div>
+            <div id="loadingIndicator">Loading...</div>
+            <div class="albumImgPocket">
+                <h1>album photo</h1>
+            </div>
+            <div class="playSong">
+                <h1>PlaySong</h1>
+            </div>
         </div>
         <div class="lyricsPocket">
             <h1>Lyrics</h1>
