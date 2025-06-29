@@ -7,6 +7,7 @@ body{
 display: grid;
 grid-template-columns: auto auto;
 grid-template-rows: auto auto auto auto;
+gap: 10px;
 height: 800px;
 width: 100%;
 background-color: beige;
@@ -20,7 +21,7 @@ background-color: beige;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 3;
-    border: 5px solid black;
+    /* border: 5px solid black; */
     background-image: url(./img/sky.jpeg);
     padding: 10px;
 }
@@ -30,17 +31,30 @@ background-color: beige;
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 5;
-    background-color: blueviolet;
-    border: 5px solid black;
+    background-color: rgb(160, 93, 223);
+    /* border: 5px solid black; */
+    max-height: 4fr;
+    overflow-y: auto;
+    padding: 10px;
+    scroll-behavior: smooth;
     
 }
+
+.lyricsPocket pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
 
 .albumImgPocket{
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 3;
     grid-row-end: 5;
-    border: 5px solid black;
+    background-color: rgb(160, 93, 223);
+    /* border: 5px solid black; */
+    height: 1fr;
+    padding: 10px;
    
 }
 .playSong{
@@ -48,7 +62,11 @@ background-color: beige;
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 5;
-    border: 5px dashed black;
+    background-color: rgb(160, 93, 223);
+    /* border: 5px dashed black; */
+    height: 1fr;
+    justify-items: center;
+    align-content: center;
 }
 
 #artistname{
@@ -79,3 +97,19 @@ background-color: beige;
     background-color: black;
     color: white;
 }
+
+@media (max-width: 768px){
+  #mainPocket {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+   #reguestPocket,
+  .albumImgPocket,
+  .playSong,
+  .lyricsPocket {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+  }
+}  
